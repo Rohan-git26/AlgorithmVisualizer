@@ -1,0 +1,133 @@
+.array-container {
+    width: 100%;
+    text-align: center;
+    
+}
+
+.arraybar {
+    display: inline-block;
+    margin: 0px 1px;
+}
+
+.arraybar-container{
+    width : 95%;
+    display: inline-block;
+    margin-top: 15px;
+    padding-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.slider-container{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 100px;
+}
+
+.infoBar-container{
+    background-color: rgb(127, 130, 131);
+    width: 95%;
+    margin-top: 10px;
+    display: inline-grid; 
+    grid-template-columns: 80px 250px 500px 250px 80;
+    grid-column-gap: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button-container{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+.grap-container{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+label{
+    font-size: large;
+}
+
+button{
+  margin-right: 7px;
+  margin-left:  7px;
+  width : 130px;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+button:hover{
+  box-shadow :0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+  transform :scale(1.1);
+}
+button:active{
+  box-shadow :0px 4px 8px rgba(darken(dodgerblue, 30%));
+  transform :scale(.90);
+}
+
+/* button{
+    position: relative;
+    top: 30%;
+    /* transform: translateY(-50%); 
+  background-color: white;
+  margin-right: 15px;
+  margin-left: 15px;
+  border :0;
+  font-size : 15px;
+  padding: 10px;
+  font-family :monospace;
+  box-shadow : 0px 5px 10px rgba(darken(dodgerblue, 40%));
+  transition: all  .3s;
+  cursor : pointer;
+  border-radius :5px;
+  border-bottom :4px solid lighten(gray, 70%);
+}
+ 
+
+
+  .dropdown-list {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font: 400 16px/1.3 sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+    color: var(--baseFg);
+    border: 1px solid var(--baseFg);
+    line-height: 1;
+    outline: 0;
+    padding: 11px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: white;
+    background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+      linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+      linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+      linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+    background-position: right 20px center, right bottom, right bottom, right bottom;   
+  }
+  
+  .dropdown-list:hover {
+    background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+      linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+      linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+      linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+  }
+  
+  .dropdown-list:active {
+    background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+      linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+      linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+      linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+    color: var(--accentBg);
+    border-color: var(--accentFg);
+    background-color: var(--accentFg);
+  }
+
+     */
+
+
+
+

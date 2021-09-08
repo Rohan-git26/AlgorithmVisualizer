@@ -1,0 +1,32 @@
+.navbar{
+    background-color: rgb(68, 65, 65);
+}
+
+li{
+ display: inline;
+}
+
+a{
+    display: inline;
+    margin-right: 50px;
+    color : white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a:hover{
+    color: turquoise;
+}
+a:link{
+    color: red;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 25px;
+    margin-inline: 10px;
+}
+
+.collapse{
+    display: inline-block;
+}
