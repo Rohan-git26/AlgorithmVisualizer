@@ -10,6 +10,8 @@ import selectionSortAnimation from "./SortingAnimations/selectionSortAnimation";
 import insertionSortAnimation from "./SortingAnimations/insertionSortAnimation";
 import mergeSortAnimation from "./SortingAnimations/mergeSortAnimation";
 import BubbleSortComponent from "./components/bubbleSortComponent";
+import MergeSortComponent from "./components/mergeSortComponent";
+
 const useStyles = makeStyles({
   root: {
     width: 165,
@@ -31,6 +33,7 @@ const SortingVisualizer = () => {
   const [value, setValue] = useState(30);
   const [ANIMATION_SPEED_MS, setANIMATION_SPEED_MS] = useState(2);
   const [currentSort, setCurrentSort] = useState("Algorithms");
+  const [visualizing,setVisualizig] = useState(false);
 
   //Run this during first render
   useEffect(() => {
@@ -38,11 +41,16 @@ const SortingVisualizer = () => {
 
     const _resetArray = () => {
       const temp = [];
-      for (let i = 0; i < value; i++) {
-        temp.push(randomIntFromInterval(5, _height - _height / 3));
-      }
-      setArray(temp);
+    for (let i = 0; i < value; i++) {
+      temp.push(randomIntFromInterval(5, _height - _height / 3.5));
+    }
+    setArray(temp);
+    const allBars = document.querySelectorAll(".arraybar");
+    for (let i = 0; i < allBars.length; i++) {
+      const barStyle = allBars[i].style;
+      barStyle.backgroundColor = "turquoise";
     };
+  }
     _resetArray();
   }, []);
 
@@ -63,7 +71,7 @@ const SortingVisualizer = () => {
   const resetArray = (NO_OF_ARRAY_BAR) => {
     const temp = [];
     for (let i = 0; i < NO_OF_ARRAY_BAR; i++) {
-      temp.push(randomIntFromInterval(5, _height - _height / 3));
+      temp.push(randomIntFromInterval(5, _height - _height / 3.5));
     }
     setArray(temp);
     const allBars = document.querySelectorAll(".arraybar");
@@ -94,6 +102,7 @@ const SortingVisualizer = () => {
   };
 
   const _selectionSort = () => {
+
     selectionSortAnimation(array, ANIMATION_SPEED_MS);
   };
   const _insertionSort = () => {
@@ -104,7 +113,7 @@ const SortingVisualizer = () => {
     resetArray(value);
   };
   const handleChangeSpeed = (event, value) => {
-    setANIMATION_SPEED_MS(value);
+    setANIMATION_SPEED_MS(event.target.value);
   };
   const handleChangeCurrentSort = (event) => {
     setCurrentSort(event.target.value);
@@ -127,6 +136,7 @@ const SortingVisualizer = () => {
         _selectionSort();
         break;
       default:
+        _bubbleSort();
         break;
     }
   };
@@ -134,8 +144,16 @@ const SortingVisualizer = () => {
   return (
     <div className="array-container">
       <div className="infoBar-container">
+        <div style={{ paddingTop : 10}}>
+          <select onChange={handleChangeSpeed}>
+            <option value="2">TOO FAST</option>
+            <option value="20">FAST</option>
+            <option value="100">SLOW</option>
+            <option value="2000">TOO SLOW</option>
+          </select>
+        </div>
         <div className="slider-container">
-        <Typography className={classes.label} gutterBottom>
+        {/* <Typography className={classes.label} gutterBottom>
               SPEED
           </Typography>          
           <Slider
@@ -145,7 +163,8 @@ const SortingVisualizer = () => {
             max={230}
             onChange={handleChangeSpeed}
             aria-labelledby="continuous-slider"
-          />
+          /> */}
+
           <Typography className={classes.label}>
             BARS
           </Typography>
@@ -153,15 +172,16 @@ const SortingVisualizer = () => {
             className={classes.root}
             value={value}
             min={10}
-            max={newWidth / 5}
+            max={newWidth / 5 - 20}
             onChange={handleChange}
             aria-labelledby="continuous-slider"
           />
         </div>
         <div className="button-container">
           {/* Button 3 */}
-          <button className="btn btn-primary" onClick={() => resetArray(value)}>Generate new Array</button>
-          <select onChange={handleChangeCurrentSort} className="dropdown-list">
+          <button  onClick={() => resetArray(value)}>Generate new Array</button>
+          <div style={{ display : "inline",position: "relative", bottom : 10}}>
+          <select onChange={handleChangeCurrentSort} >
             <option selected value="bubbleSort">
               Bubble Sort
             </option>
@@ -170,10 +190,17 @@ const SortingVisualizer = () => {
             <option value="mergeSort">Merge Sort</option>
             <option value="selectionSort">SelectionSort</option>
           </select>
+          </div>
           <button className="btn btn-success" onClick={visualizeAlgorithm}>Visuaize Algorithm</button>
         </div>
         <div className="grap-container">{/* Graph or Index */}
+        <div>
         <BubbleSortComponent />
+        </div>
+       
+        </div>
+        <div className="temp">
+        <MergeSortComponent />
         </div>
       </div>
 

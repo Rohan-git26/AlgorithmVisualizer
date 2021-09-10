@@ -43,7 +43,7 @@ const bubbleSortAnimation = (array,ANIMATION_SPEED_MS) =>{
                 const barTwoStyle = arrayBars[barTwoIdx].style
                 setTimeout(()=>{
                     barOneStyle.backgroundColor = PRIMARY_COLOR
-                    barTwoStyle.backgroundColor = "green"
+                    barTwoStyle.backgroundColor = "purple"
                 }, i*ANIMATION_SPEED_MS)
             }
              else if(child[0] === 3){
@@ -53,8 +53,8 @@ const bubbleSortAnimation = (array,ANIMATION_SPEED_MS) =>{
                 const barOneStyle = arrayBars[barOneIdx].style
                 const barTwoStyle = arrayBars[barTwoIdx].style
                 setTimeout(()=>{
-                    barOneStyle.backgroundColor = "green"
-                    barTwoStyle.backgroundColor = "green"
+                    barOneStyle.backgroundColor = "purple"
+                    barTwoStyle.backgroundColor = "purple"
                 }, i*ANIMATION_SPEED_MS)
             }
 

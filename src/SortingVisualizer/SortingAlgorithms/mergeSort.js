@@ -37,12 +37,10 @@ function doMerge(
         if(auxillaryArray[i] <= auxillaryArray[j]){
             animations.push([k,auxillaryArray[i]])
             animations.push([i,j])
-
             mainArray[k++] = auxillaryArray[i++]
         }else{
             animations.push([k,auxillaryArray[j]])
             animations.push([i,j])
-
             mainArray[k++] = auxillaryArray[j++]
         }
     }

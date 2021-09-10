@@ -1,25 +1,25 @@
 import React from "react";
 // import "./component.css"
-const BubbleSortComponent = () => {
+const MergeSortComponent = () => {
   return (
     <div className="main-container">
       <div
-        className="unsorted"
+        className="swaping"
         style={{
-          backgroundColor: "turquoise",
+          backgroundColor: "yellow",
           width: 100,
           textAlign: "center",
-          fontWeight : "bold",
-          marginTop : 5,
           marginBottom : 3,
+          marginTop : 5,
+          fontWeight : "bold"
         }}
       >
-        unsorted
+        swaping
       </div>
       <div
-        className="comparing"
+        className="sorted"
         style={{
-          backgroundColor: "red",
+          backgroundColor: "purple",
           width: 100,
           textAlign: "center",
           color : "#ccc",
@@ -27,12 +27,10 @@ const BubbleSortComponent = () => {
           fontWeight : "bold"
         }}
       >
-        comparing
+        sorted
       </div>
-
-     
     </div>
   );
 };
 
-export default BubbleSortComponent;
+export default MergeSortComponent;

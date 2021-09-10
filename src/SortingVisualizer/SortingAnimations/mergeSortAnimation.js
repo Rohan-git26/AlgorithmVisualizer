@@ -4,6 +4,7 @@ const PRIMARY_COLOR = "turquoise"
 const SECONDARY_COLOR = "red"
 const mergeSortAnimation = (array,ANIMATION_SPEED_MS) =>{
     const animations = mergeSort(array);
+
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("arraybar");
       const isColorChange = i % 3 !== 1;
@@ -13,7 +14,7 @@ const mergeSortAnimation = (array,ANIMATION_SPEED_MS) =>{
         const barTwoIdx = barIdx[1];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : "purple";
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -26,6 +27,8 @@ const mergeSortAnimation = (array,ANIMATION_SPEED_MS) =>{
         }, i * ANIMATION_SPEED_MS);
       }
     }
+    //return animations.length*ANIMATION_SPEED_MS;
+    
 }
 
 export default mergeSortAnimation
