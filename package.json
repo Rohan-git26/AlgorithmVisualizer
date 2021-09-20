@@ -1,4 +1,5 @@
 {
+  "homepage": "https://rohan-git26.github.io/AlgorithmVisualizer",
   "name": "algorithmvisualizer",
   "version": "0.1.0",
   "private": false,
@@ -16,6 +17,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
