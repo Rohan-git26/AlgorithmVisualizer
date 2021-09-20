@@ -33,7 +33,7 @@ const SortingVisualizer = () => {
   const [value, setValue] = useState(30);
   const [ANIMATION_SPEED_MS, setANIMATION_SPEED_MS] = useState(2);
   const [currentSort, setCurrentSort] = useState("Algorithms");
-  const [visualizing,setVisualizig] = useState(false);
+  //const [visualizing,setVisualizig] = useState(false);
 
   //Run this during first render
   useEffect(() => {
@@ -145,12 +145,14 @@ const SortingVisualizer = () => {
     <div className="array-container">
       <div className="infoBar-container">
         <div style={{ paddingTop : 10}}>
+          <div className="box" style={{ display : "inline",position: "relative", bottom : 10}}>
           <select onChange={handleChangeSpeed}>
             <option value="2">TOO FAST</option>
             <option value="20">FAST</option>
             <option value="100">SLOW</option>
             <option value="2000">TOO SLOW</option>
           </select>
+          </div>
         </div>
         <div className="slider-container">
         {/* <Typography className={classes.label} gutterBottom>
@@ -179,8 +181,8 @@ const SortingVisualizer = () => {
         </div>
         <div className="button-container">
           {/* Button 3 */}
-          <button  onClick={() => resetArray(value)}>Generate new Array</button>
-          <div style={{ display : "inline",position: "relative", bottom : 10}}>
+          <button  style={{backgroundColor : "#228b22", color : "whitesmoke", borderColor : "#228b22",width : 150}} onClick={() => resetArray(value)}>Generate new Array</button>
+            <div className="box" style={{ display : "inline",position: "relative", bottom : 10}}>
           <select onChange={handleChangeCurrentSort} >
             <option selected value="bubbleSort">
               Bubble Sort
@@ -191,7 +193,7 @@ const SortingVisualizer = () => {
             <option value="selectionSort">SelectionSort</option>
           </select>
           </div>
-          <button className="btn btn-success" onClick={visualizeAlgorithm}>Visuaize Algorithm</button>
+          <button  style={{backgroundColor : "#228b22", color : "whitesmoke", borderColor : "#228b22",width : 150}} onClick={visualizeAlgorithm}>Visuaize Algorithm</button>
         </div>
         <div className="grap-container">{/* Graph or Index */}
         <div>

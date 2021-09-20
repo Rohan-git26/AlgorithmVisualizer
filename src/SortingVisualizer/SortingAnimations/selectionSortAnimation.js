@@ -1,8 +1,8 @@
 import { selectionSort } from "../SortingAlgorithms/selectionSort";
 const temp = (array,ANIMATION_SPEED_MS) => {
   const animations = selectionSort(array);
-  let i = 0
-  for (; i < animations.length; i++) {
+  // eslint-disable-next-line
+  for (let i=0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName("arraybar");
     const element = animations[i];
     const isColorChange = i % 3 !== 1;

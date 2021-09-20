@@ -2,7 +2,8 @@ import { insertionSort } from "../SortingAlgorithms/insertionSort";
 
 const insertionSortAnimation = (array,ANIMATION_SPEED_MS) => {
   const animations = insertionSort(array);
-  let keyHeight = 0;
+  
+  let keyHeight = 0;// eslint-disable-next-line
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName("arraybar");
     const element = animations[i];
@@ -38,7 +39,7 @@ const insertionSortAnimation = (array,ANIMATION_SPEED_MS) => {
         const [, barIdx] = animations[i];
         const barStyle = arrayBars[barIdx].style;
         setTimeout(() => {
-          keyHeight = barStyle.height;
+          keyHeight = barStyle.height;// eslint-disable-next-line
         }, i * ANIMATION_SPEED_MS);
       } else if (element[0] === 1) {
         const [, barOneIdx, barTwoIdx] = animations[i];
@@ -51,7 +52,7 @@ const insertionSortAnimation = (array,ANIMATION_SPEED_MS) => {
         const [, barOneIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         setTimeout(() => {
-          barOneStyle.height = keyHeight;
+          barOneStyle.height = keyHeight;// eslint-disable-next-line
         }, i * ANIMATION_SPEED_MS);
       }
     }

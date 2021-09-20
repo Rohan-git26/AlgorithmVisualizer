@@ -73,7 +73,7 @@ button:active{
   grid-column-start: 5;
   grid-column-end: 6;
   position :relative;
-  right : 30px;
+  right : 20px;
 }
 
 /* button{

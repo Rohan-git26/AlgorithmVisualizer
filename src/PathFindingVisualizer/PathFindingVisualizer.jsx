@@ -43,12 +43,12 @@ const PathFindingVisualizer = () => {
   const [grid, setGrid] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  const [speed, setSpeed] = useState(10);
+  const [speed, ] = useState(10);
   const [visualizingAlgorithm, setVisualizingAlgorithm] = useState(false);
   const [generatingMaze, setGeneratingMaze] = useState(false);
-  const [mazeSpeed, setMazeSpeed] = useState(10);
-  const [numRows, setNumRows] = useState(initialNumRows);
-  const [numColumns, setNumColumns] = useState(initialNumColumns);
+  const [mazeSpeed, ] = useState(10);
+  const [numRows, ] = useState(initialNumRows);
+  const [numColumns, ] = useState(initialNumColumns);
   const [currAlgo, setCurrAlgo] = useState("A* algorithm");
   const [maze, setMaze] = useState("Random Maze");
   const [dragStartData, setDragStartData] = useState([startNodeRow, startNodeCol]);
@@ -60,8 +60,8 @@ const PathFindingVisualizer = () => {
 
   useEffect(() => {
     window.addEventListener("resize", updateDimensions());
-    const newGrid = getInitialGrid(numRows, numColumns);
-
+    // eslint-disable-next-line
+    const newGrid = getInitialGrid(numRows, numColumns);// eslint-disable-next-line
     setGrid(newGrid);
   }, []);
 
@@ -494,6 +494,7 @@ const PathFindingVisualizer = () => {
   return (
     <div className="container-fluid">
       <div className="info-container">
+        <div className="box">
         <select onChange={(event) => handleAlgoChange(event)}>
           <option> A* algorithm</option>
           <option>Dijkstra</option>
@@ -503,21 +504,24 @@ const PathFindingVisualizer = () => {
           <option>Depth First Search</option>
           <option>Breadth First Search</option>
         </select>
-        <button onClick={visualizer} style={{ backgroundColor : "#008000",color : "white", borderColor : "#008000", padding : 5}}>
+        </div>
+        <button onClick={visualizer} style={{ backgroundColor : "#008000",color : "white", borderColor : "#008000", padding : 8}}>
           VISUALIZER
         </button>
-        <button onClick={clearGrid} style={{ backgroundColor : "red",color : "white", borderColor : "red",padding : 5 }}>
+        <button onClick={clearGrid} style={{ backgroundColor : "red",color : "white", borderColor : "red",padding : 8, width: 200 }}>
           CLEAR
         </button>
+        <div className="box">
         <select onChange={(event) => handleMazeChange(event)} >
           <option>Random Maze</option>
           <option>Recursive Maze</option>
           <option>Vertical Maze</option>
           <option>Horizontal Maze</option>
         </select>
+        </div>
         <button
           type="button"
-          style={{ backgroundColor : "#008000",color : "white",borderColor : "#008000", padding : 5, width : 200}}
+          style={{ backgroundColor : "#008000",color : "white",borderColor : "#008000", padding : 8, width : 200}}
           onClick={generateMaze}
         >
           GENERATE MAZE
