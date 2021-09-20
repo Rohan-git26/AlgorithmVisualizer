@@ -71,7 +71,7 @@ const SortingVisualizer = () => {
   const resetArray = (NO_OF_ARRAY_BAR) => {
     const temp = [];
     for (let i = 0; i < NO_OF_ARRAY_BAR; i++) {
-      temp.push(randomIntFromInterval(5, _height - _height / 3.5));
+      temp.push(randomIntFromInterval(5, _height - _height / 4));
     }
     setArray(temp);
     const allBars = document.querySelectorAll(".arraybar");
