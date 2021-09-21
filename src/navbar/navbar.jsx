@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css"
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const logo =
@@ -24,14 +25,14 @@ const NavBar = () => {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" >
           <li class="nav-item active">
-            <a class="nav-link" href="/"> Sorting
+            <Link class="nav-link" to="/"> Sorting
               {/* Home <span class="sr-only">(current)</span> */}
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/pathFinding">
+            <Link  class="nav-link" to="/pathFinding">
               PathFinding
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
