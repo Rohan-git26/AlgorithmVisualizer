@@ -1,5 +1,5 @@
 import "./App.css";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PathFindingVisualizerScreen from "./Screens/PathFindingVisualizerScreen";
 import SortingVisualizer from "./SortingVisualizer/SortingVisualizer";
 import NavBar from "./navbar/navbar.jsx";

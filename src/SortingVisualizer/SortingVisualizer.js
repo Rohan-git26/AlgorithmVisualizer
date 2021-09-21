@@ -33,7 +33,7 @@ const SortingVisualizer = () => {
   const [value, setValue] = useState(30);
   const [ANIMATION_SPEED_MS, setANIMATION_SPEED_MS] = useState(2);
   const [currentSort, setCurrentSort] = useState("Algorithms");
-  //const [visualizing,setVisualizig] = useState(false);
+  const [visualizing,setVisualizig] = useState();
 
   //Run this during first render
   useEffect(() => {
@@ -69,6 +69,9 @@ const SortingVisualizer = () => {
 
   //creating new random array
   const resetArray = (NO_OF_ARRAY_BAR) => {
+    
+      clearTimeout(visualizing)
+    
     const temp = [];
     for (let i = 0; i < NO_OF_ARRAY_BAR; i++) {
       temp.push(randomIntFromInterval(5, _height - _height / 4));
@@ -121,19 +124,23 @@ const SortingVisualizer = () => {
   const visualizeAlgorithm = () => {
     switch (currentSort) {
       case "bubbleSort":
-        _bubbleSort();
+       const bubble = _bubbleSort();
+       setVisualizig(bubble)
         break;
       case "insertionSort":
-        _insertionSort();
+       const insert = _insertionSort();
+       setVisualizig(insert);
         break;
       case "quickSort":
-        _quickSort();
+        const quick = _quickSort();
         break;
       case "mergeSort":
-        _mergeSort();
+       const merge = _mergeSort();
+       setVisualizig(merge)
         break;
       case "selectionSort":
-        _selectionSort();
+       const select = _selectionSort();
+       setVisualizig(select)
         break;
       default:
         _bubbleSort();
