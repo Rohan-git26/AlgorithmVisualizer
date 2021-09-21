@@ -6,13 +6,14 @@ import NavBar from "./navbar/navbar.jsx";
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-      <Route exact path="/" component={SortingVisualizer} />
-        <Route exact path="/pathFinding" component={PathFindingVisualizerScreen} />
-      </Switch>
-    </Router>
+    // <Router>
+    //   <NavBar />
+    //   <Switch>
+    //   <Route exact path="/" component={SortingVisualizer} />
+    //     <Route exact path="/pathFinding" component={PathFindingVisualizerScreen} />
+    //   </Switch>
+    // </Router>
+    <PathFindingVisualizerScreen />
   );
 }
 
