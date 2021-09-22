@@ -33,7 +33,6 @@ const SortingVisualizer = () => {
   const [value, setValue] = useState(30);
   const [ANIMATION_SPEED_MS, setANIMATION_SPEED_MS] = useState(2);
   const [currentSort, setCurrentSort] = useState("Algorithms");
-  const [visualizing,setVisualizig] = useState();
 
   //Run this during first render
   useEffect(() => {
@@ -42,7 +41,7 @@ const SortingVisualizer = () => {
     const _resetArray = () => {
       const temp = [];
     for (let i = 0; i < value; i++) {
-      temp.push(randomIntFromInterval(5, _height - _height / 3.5));
+      temp.push(randomIntFromInterval(5, _height - _height / 4));
     }
     setArray(temp);
     const allBars = document.querySelectorAll(".arraybar");
@@ -63,14 +62,14 @@ const SortingVisualizer = () => {
     };
   }
 
+
   //Calling getWindowDimensions method(destructering)
   const { _height, _width } = getWindowDimensions();
   const newWidth = _width - _width / 8;
 
   //creating new random array
   const resetArray = (NO_OF_ARRAY_BAR) => {
-    
-      clearTimeout(visualizing)
+    console.log(window.innerHeight, window.innerWidth)
     
     const temp = [];
     for (let i = 0; i < NO_OF_ARRAY_BAR; i++) {
@@ -124,23 +123,19 @@ const SortingVisualizer = () => {
   const visualizeAlgorithm = () => {
     switch (currentSort) {
       case "bubbleSort":
-       const bubble = _bubbleSort();
-       setVisualizig(bubble)
+       _bubbleSort();
         break;
       case "insertionSort":
-       const insert = _insertionSort();
-       setVisualizig(insert);
+        _insertionSort();
         break;
       case "quickSort":
-        const quick = _quickSort();
+        _quickSort();
         break;
       case "mergeSort":
-       const merge = _mergeSort();
-       setVisualizig(merge)
+        _mergeSort();
         break;
       case "selectionSort":
-       const select = _selectionSort();
-       setVisualizig(select)
+        _selectionSort();
         break;
       default:
         _bubbleSort();
@@ -188,8 +183,8 @@ const SortingVisualizer = () => {
         </div>
         <div className="button-container">
           {/* Button 3 */}
-          <button  style={{backgroundColor : "#228b22", color : "whitesmoke", borderColor : "#228b22",width : 150}} onClick={() => resetArray(value)}>Generate new Array</button>
-            <div className="box" style={{ display : "inline",position: "relative", bottom : 10}}>
+          <button  style={{backgroundColor : "#228b22", color : "white", borderColor : "#228b22",padding : 8,}} onClick={() => resetArray(value)}>NEW ARRAY</button>
+            <div className="box" style={{ display : "inline",}}>
           <select onChange={handleChangeCurrentSort} >
             <option selected value="bubbleSort">
               Bubble Sort
@@ -200,7 +195,7 @@ const SortingVisualizer = () => {
             <option value="selectionSort">SelectionSort</option>
           </select>
           </div>
-          <button  style={{backgroundColor : "#228b22", color : "whitesmoke", borderColor : "#228b22",width : 150}} onClick={visualizeAlgorithm}>Visuaize Algorithm</button>
+          <button  style={{backgroundColor : "#228b22", color : "white", borderColor : "#228b22",padding : 8,}} onClick={visualizeAlgorithm}>VISUALIZE</button>
         </div>
         <div className="grap-container">{/* Graph or Index */}
         <div>

@@ -43,10 +43,10 @@ const PathFindingVisualizer = () => {
   const [grid, setGrid] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  const [speed, ] = useState(10);
+  const [speed, setSpeed] = useState(10);
   const [visualizingAlgorithm, setVisualizingAlgorithm] = useState(false);
   const [generatingMaze, setGeneratingMaze] = useState(false);
-  const [mazeSpeed, ] = useState(10);
+  const [mazeSpeed, setMazeSpeed] = useState(10);
   const [numRows, ] = useState(initialNumRows);
   const [numColumns, ] = useState(initialNumColumns);
   const [currAlgo, setCurrAlgo] = useState("A* algorithm");
@@ -56,6 +56,7 @@ const PathFindingVisualizer = () => {
   const [sNode,setSNode] = useState([startNodeRow,startNodeCol]);
   const [fNode,setFNode] = useState([finishNodeRow,finishNodeCol])
   const [isTarget,setIsTarget]  = useState(false)
+  
 
 
   useEffect(() => {
@@ -441,13 +442,17 @@ const PathFindingVisualizer = () => {
   const handleAlgoChange = (event) => {
     setCurrAlgo(event.target.value);
   };
+  const handleSpeed = (event) =>{
+    setSpeed(event.target.value)
+    setMazeSpeed(event.target.value)
+  }
 
   const handleMazeChange = (event) => {
     setMaze(event.target.value);
-    console.log(event.target.value);
   };
 
   const visualizer = () => {
+   
     if (currAlgo === "Dijkstra") visualizeDijkstra();
     else if (currAlgo === "A* algorithm") visualizeAStar();
     else if (currAlgo === "Breadth First Search") visualizeBFS();
@@ -505,10 +510,10 @@ const PathFindingVisualizer = () => {
           <option>Breadth First Search</option>
         </select>
         </div>
-        <button onClick={visualizer} style={{ backgroundColor : "#008000",color : "white", borderColor : "#008000", padding : 8}}>
+        <button onClick={visualizer} style={{ backgroundColor : "#228b22",color : "white", borderColor : "#228b22", padding : 8}}>
           VISUALIZER
         </button>
-        <button onClick={clearGrid} style={{ backgroundColor : "red",color : "white", borderColor : "red",padding : 8, width: 200 }}>
+        <button onClick={clearGrid} style={{ backgroundColor : "#f54e42",color : "white", borderColor : "#f54e42",padding : 8, width: 170, position : "relative", left : 13}}>
           CLEAR
         </button>
         <div className="box">
@@ -521,12 +526,25 @@ const PathFindingVisualizer = () => {
         </div>
         <button
           type="button"
-          style={{ backgroundColor : "#008000",color : "white",borderColor : "#008000", padding : 8, width : 200}}
+          style={{ backgroundColor : "#228b22",color : "white",borderColor : "#228b22", padding : 8, width : 200}}
           onClick={generateMaze}
         >
           GENERATE MAZE
         </button>
+
+      {/* new button for speed handling */}
+      <div className="box">
+        <select style={{ width : 100,
+         }} onClick={(event)=>handleSpeed(event)}>
+          <option value="50">Slow</option>
+          <option value="30">Medium</option>
+          <option value="10">Fast</option>
+          
+        </select>
+        </div>
       </div>
+
+
       <div
         className={
           visualizingAlgorithm || generatingMaze ? "grid-visualizing" : "grid"
