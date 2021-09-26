@@ -12,6 +12,8 @@ import mergeSortAnimation from "./SortingAnimations/mergeSortAnimation";
 import BubbleSortComponent from "./components/bubbleSortComponent";
 import MergeSortComponent from "./components/mergeSortComponent";
 
+
+
 const useStyles = makeStyles({
   root: {
     width: 165,
@@ -26,22 +28,27 @@ const useStyles = makeStyles({
     fontWeight : "bold"
   }
 });
-const PRIMARY_COLOR = "turquoise";
+const PRIMARY_COLOR = 'turquoise'
+
 const SortingVisualizer = () => {
   const classes = useStyles();
   const [array, setArray] = useState([]);
   const [value, setValue] = useState(30);
   const [ANIMATION_SPEED_MS, setANIMATION_SPEED_MS] = useState(2);
   const [currentSort, setCurrentSort] = useState("Algorithms");
+  const [height,setHeight] = useState(window.innerHeight);
+  const [width,setWidth] = useState(window.innerWidth);
+
 
   //Run this during first render
   useEffect(() => {
-    const { _height } = getWindowDimensions();
+    window.addEventListener("resize", updateDimensions());
+
 
     const _resetArray = () => {
       const temp = [];
     for (let i = 0; i < value; i++) {
-      temp.push(randomIntFromInterval(5, _height - _height / 4));
+      temp.push(randomIntFromInterval(5, height - height / 4));
     }
     setArray(temp);
     const allBars = document.querySelectorAll(".arraybar");
@@ -53,27 +60,23 @@ const SortingVisualizer = () => {
     _resetArray();
   }, []);
 
+  const updateDimensions = () => {
+    setHeight(window.innerHeight);
+    setWidth(window.innerWidth);
+  };
+
   //Getting dimensions of window
-  function getWindowDimensions() {
-    const { innerWidth: _width, innerHeight: _height } = window;
-    return {
-      _width,
-      _height,
-    };
-  }
+  
 
 
   //Calling getWindowDimensions method(destructering)
-  const { _height, _width } = getWindowDimensions();
-  const newWidth = _width - _width / 8;
+  const newWidth = width - width / 8;
 
   //creating new random array
   const resetArray = (NO_OF_ARRAY_BAR) => {
-    console.log(window.innerHeight, window.innerWidth)
-    
     const temp = [];
     for (let i = 0; i < NO_OF_ARRAY_BAR; i++) {
-      temp.push(randomIntFromInterval(5, _height - _height / 4));
+      temp.push(randomIntFromInterval(5, height - height / 4));
     }
     setArray(temp);
     const allBars = document.querySelectorAll(".arraybar");
@@ -100,7 +103,7 @@ const SortingVisualizer = () => {
 
   //QuickSort Animation
   const _quickSort = () => {
-    quickSortAnimation(array, ANIMATION_SPEED_MS);
+   quickSortAnimation(array, ANIMATION_SPEED_MS);
   };
 
   const _selectionSort = () => {
@@ -141,7 +144,11 @@ const SortingVisualizer = () => {
         _bubbleSort();
         break;
     }
+
   };
+
+  
+ 
 
   return (
     <div className="array-container">
@@ -149,10 +156,10 @@ const SortingVisualizer = () => {
         <div style={{ paddingTop : 10}}>
           <div className="box" style={{ display : "inline",position: "relative", bottom : 10}}>
           <select onChange={handleChangeSpeed}>
-            <option value="2">TOO FAST</option>
+            <option value="1">TOO FAST</option>
             <option value="20">FAST</option>
-            <option value="100">SLOW</option>
-            <option value="2000">TOO SLOW</option>
+            <option value="50">SLOW</option>
+            <option value="80">TOO SLOW</option>
           </select>
           </div>
         </div>
@@ -197,6 +204,7 @@ const SortingVisualizer = () => {
           </div>
           <button  style={{backgroundColor : "#228b22", color : "white", borderColor : "#228b22",padding : 8,}} onClick={visualizeAlgorithm}>VISUALIZE</button>
         </div>
+       
         <div className="grap-container">{/* Graph or Index */}
         <div>
         <BubbleSortComponent />
@@ -228,3 +236,9 @@ const SortingVisualizer = () => {
 };
 
 export default SortingVisualizer;
+
+
+
+
+   
+   

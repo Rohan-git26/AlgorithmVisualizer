@@ -25,7 +25,7 @@ const mergeSortAnimation = (array,ANIMATION_SPEED_MS) =>{
           barOneStyle.height = `${newHeight}px`;
         }, i * ANIMATION_SPEED_MS);
       }
-      if(i == animations.length - 1){
+      if(i === animations.length - 1){
         setTimeout(()=>{
           const allBars = document.querySelectorAll(".arraybar");
         for (let i = 0; i < allBars.length; i++) {

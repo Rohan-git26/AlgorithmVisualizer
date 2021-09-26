@@ -2,8 +2,8 @@ export function greedyBFS(grid, startNode, finishNode) {
     if (!startNode || !finishNode || startNode === finishNode) {
       return false;
     }
-    let unvisitedNodes = []; //open list
-    let visitedNodesInOrder = []; //closed list
+    let unvisitedNodes = []; //pq ka bhai
+    let visitedNodesInOrder = []; //visited
     startNode.distance = 0;
     unvisitedNodes.push(startNode);
   
